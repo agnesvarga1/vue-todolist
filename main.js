@@ -3,7 +3,24 @@ createApp({
   created() {},
   data() {
     return {
-      test: "hello",
+      newTask: {
+        text: "",
+        done: false,
+      },
+      tasks: [
+        {
+          text: "task 1",
+          done: false,
+        },
+        {
+          text: "task 2",
+          done: false,
+        },
+        {
+          text: "task 2",
+          done: false,
+        },
+      ],
     };
   },
 
