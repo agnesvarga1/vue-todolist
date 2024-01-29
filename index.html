@@ -18,7 +18,7 @@
       <main class="container text-center w-50">
         <h1>Todo List</h1>
 
-        <div class="task inputs d-flex justify-content-center gap-5">
+        <div @keyup.enter="addTask" class="task inputs d-flex justify-content-center gap-5">
           <input
             v-model="newTask.text"
             class="form-control"
@@ -29,20 +29,22 @@
 
           <button @click="addTask" class="btn btn-primary">ADD</button>
         </div>
-        <div class="row justify-content-center align-items-center mt-3">
+        <div  class="row justify-content-center align-items-center mt-3">
             <ul class="list-group justify-content-center  align-items-center ">
-                <div v-for="(task,index) in tasks" :key="index" class="d-flex border  w-100 p-2 justify-content-between" >
-                    <li  v-if="tasks.length === 0" class="list-group-item w-100 d-flex justify-content-between align-items-center ">No tasks for Now
+              
+                    <li v-if="tasks.length === 0 "  class="list-group-item w-100 d-flex justify-content-between align-items-center ">No tasks for Now
                     </li> 
-                    <li  v-else 
+                    <div v-else v-for="(task,index) in tasks" :key="index" class="d-flex border  w-100 p-2 justify-content-between" >
+                    <li  
+                    
                     @click="isDone(index)"
                     class="list-item d-flex justify-content-between align-items-center" 
                     :class="(!task.done) ? `` : `text-decoration-line-through`"
-                     >{{task.text}}
-                    
-                    </li> 
-                    <span @click="deleteTask(index)" class="btn text-danger fs-5 ms-3 col-1   end-0"><i class="fa-solid fa-trash-can"></i></span>  
-                </div>
+                     >{{task.text}} </li>  <span @click="deleteTask(index)" class="btn text-danger fs-5 ms-3 col-1  "><i class="fa-solid fa-trash-can"></i></span>   </div> 
+                     
+                 
+                   
+              
                
                 
                 

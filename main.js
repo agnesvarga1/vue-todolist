@@ -26,10 +26,14 @@ createApp({
 
   methods: {
     addTask() {
-      if (this.newTask) {
+      if (this.newTask.text.length > 0) {
         this.tasks.push(this.newTask);
       }
-      this.newTask = "";
+
+      this.newTask = {
+        text: "",
+        done: false,
+      };
     },
     deleteTask(index) {
       this.tasks.splice(index, 1);
